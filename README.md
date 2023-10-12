@@ -41,7 +41,7 @@ Before you start using CHANG, ensure you have the following dependencies install
 ### Usage
 To start the Penetration Testing Planning App, execute the following command:
    ```bash
-   streamlit run app.py
+   streamlit run Home.py
    ```
 The app should open in your default web browser.
 ## Contributing
