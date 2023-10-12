@@ -4,6 +4,9 @@
 
 CHANG is a Penetration Testing Planning App, inspired by the quote "Without strategy, execution is aimless. Without execution, strategy is useless." by Morris Chang. This app is built using Streamlit, a Python web app framework, to assist penetration testers in planning and organizing their penetration testing activities. It provides a user-friendly interface for inputting and managing various aspects of a penetration test.
 
+## Live Preview
+https://chang-notes.streamlit.app/ 
+
 ## Table of Contents
 
 - [Features](#features)
