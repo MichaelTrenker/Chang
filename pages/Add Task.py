@@ -15,7 +15,7 @@ st.set_page_config(
 session_state = st.session_state
 
 if 'taskservice' not in session_state:
-        taskservice = TaskService()
+   taskservice = TaskService()
 
 st.text_input("Enter your Taskname", key="taskname")
 st.text_input("Enter your Description", key="description")
@@ -42,11 +42,18 @@ st.selectbox(
 )
 st.text_area(label="Enter your comment", key="comment")
 
-st.multiselect('Tags',[tag for tag in taskservice.getTags()], key="tags",format_func=lambda tag: tag.name)
+st.multiselect('Tags',[tag for tag in taskservice.getTags()],
+                key="tags",format_func=lambda tag: tag.name)
 
 
 if st.button("Add Task", type="primary"):
-    print(st.session_state.taskname, st.session_state.description, st.session_state.status, st.session_state.phase, st.session_state.priority, st.session_state.comment, st.session_state.tags)
-    TaskService().addTask(st.session_state.taskname, st.session_state.description, st.session_state.status, st.session_state.phase, st.session_state.priority, st.session_state.comment, st.session_state.tags)
-    st.success('Task saved', icon="✅")
+   try:
+      TaskService().addTask(st.session_state.taskname, st.session_state.description,
+                              st.session_state.status, st.session_state.phase, 
+                              st.session_state.priority, st.session_state.comment, 
+                              st.session_state.tags)
+      st.success('Task saved', icon="✅")
+   except ValueError as e:
+        st.error(str(e),icon="❌")
+
 

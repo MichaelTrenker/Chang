@@ -1,7 +1,8 @@
 import streamlit as st
+from streamlit_extras.tags import tagger_component
 from service.Tasks import TaskService
 from service.Tasks import Color
-from streamlit_extras.tags import tagger_component
+
 #inituiate the app
 st.set_page_config(
     page_title="Pentesting Notes App",
@@ -13,7 +14,7 @@ st.set_page_config(
 session_state = st.session_state
 
 if 'taskservice' not in session_state:
-        taskservice = TaskService()
+    taskservice = TaskService()
 
 st.text_input("Enter your Tagname", key="tagname")
 
@@ -27,9 +28,11 @@ st.selectbox(
 
 
 if st.button("Add Tag", type="primary"):
-    TaskService().addTag(st.session_state.tagname, st.session_state.color)
-    st.success('Tag saved', icon="✅")
-
+    try:
+        TaskService().addTag(st.session_state.tagname, st.session_state.color)
+        st.success('Tag saved', icon="✅")
+    except ValueError as e:
+        st.error(str(e),icon="❌")
 all_tag_name = []
 all_tag_color = []
 for tag in taskservice.getTags():
@@ -37,4 +40,3 @@ for tag in taskservice.getTags():
     all_tag_color.append(tag.color)
 
 tagger_component("",all_tag_name,all_tag_color)
-
