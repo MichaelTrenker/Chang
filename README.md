@@ -36,11 +36,13 @@ Before you start using CHANG, ensure you have the following dependencies install
 1. Clone the CHANG repository to your local machine.
 
    ```bash
-   git clone https://github.com/your-username/chang-penetration-testing.git
-   cd penetration-testing-app
-   pip install -r requirements.txt
+   https://github.com/MichaelTrenker/Chang.git
    ```
-
+2. Install required dependencies.
+   
+   ```bash
+   pip install -r requirements.txt
+   ``` 
 ### Usage
 To start the Penetration Testing Planning App, execute the following command:
    ```bash
