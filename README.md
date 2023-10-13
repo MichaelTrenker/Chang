@@ -19,7 +19,7 @@ https://chang-notes.streamlit.app/
 
 ## Features
 
-- **Create Notes**: Create Notes and assign them with parametres like phase of the killchain, status, priority.
+- **Create Tasks **: Create Tasks and assign them with parametres like phase of the killchain, status, priority.
 - **Create Tags**: Create Tags which help to organize your notes and keep an simple overview.
 
 ## Getting Started
