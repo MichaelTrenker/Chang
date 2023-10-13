@@ -1,8 +1,9 @@
 import streamlit as st
-from service.Tasks import Status
-from service.Tasks import Phase
-from service.Tasks import Priority
-from service.Tasks import TaskService
+from service.tasks_service import TaskService
+from service.tag_service import TagService
+from enums.status import Status
+from enums.phase import Phase
+from enums.priority import Priority
 
 #inituiate the app
 st.set_page_config(
@@ -16,6 +17,10 @@ session_state = st.session_state
 
 if 'taskservice' not in session_state:
    taskservice = TaskService()
+
+if 'tagservice' not in session_state:
+   tagservice = TagService()
+
 
 st.text_input("Enter your Taskname", key="taskname")
 st.text_input("Enter your Description", key="description")
@@ -42,7 +47,7 @@ st.selectbox(
 )
 st.text_area(label="Enter your comment", key="comment")
 
-st.multiselect('Tags',[tag for tag in taskservice.getTags()],
+st.multiselect('Tags',[tag for tag in tagservice.getTags()],
                 key="tags",format_func=lambda tag: tag.name)
 
 

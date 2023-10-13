@@ -1,0 +1,17 @@
+[[pages]]
+path = "Home.py"
+name = "Home"
+
+[[pages]]
+path = "pages/AddTask.py"
+name = "Add Task"
+
+[[pages]]
+path = "pages/AddTag.py"
+name = "Add Tag"
+
+[[pages]]
+path = "pages/EditTask.py"
+name = "Edit Task"
+
+
